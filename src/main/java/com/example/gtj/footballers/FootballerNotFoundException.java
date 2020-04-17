@@ -1,4 +1,4 @@
-package com.example.gtj;
+package com.example.gtj.footballers;
 
 public class FootballerNotFoundException extends RuntimeException {
 

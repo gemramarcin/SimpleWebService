@@ -1,4 +1,4 @@
-package com.example.gtj;
+package com.example.gtj.footballers;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
@@ -11,6 +11,8 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
+@RequiredArgsConstructor
 
 @Entity
 @Component
@@ -23,8 +25,8 @@ public class Footballer {
     private double weight;
     private double marketValue;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NonNull private long id;
 
 
 }
