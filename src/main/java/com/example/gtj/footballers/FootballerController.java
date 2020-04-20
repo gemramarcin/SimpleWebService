@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/footballers")
-public class FootballerController {
+class FootballerController {
 
     @Autowired
     FootballerRepo footballerRepo;
@@ -24,8 +24,8 @@ public class FootballerController {
 
     @PutMapping("/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public void updateFootballer(@Valid @RequestBody Footballer footballer, long id) {
-        footballerRepo.updateDetails(footballer.getId(), footballer.getAge(), footballer.getWeight(), footballer.getMarketValue());
+    public void updateFootballer(@Valid @RequestBody Footballer footballer, @PathVariable long id) {
+        footballerRepo.updateDetails(id, footballer.getAge(), footballer.getWeight(), footballer.getMarketValue());
     }
 
     @GetMapping("/{id}")
@@ -40,7 +40,6 @@ public class FootballerController {
         footballerRepo.findAll().forEach(footballers::add);
         return footballers;
     }
-
 
     @DeleteMapping("{id}")
     @ResponseStatus(value = HttpStatus.OK)

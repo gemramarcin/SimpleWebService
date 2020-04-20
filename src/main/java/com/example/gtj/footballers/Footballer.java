@@ -1,12 +1,11 @@
 package com.example.gtj.footballers;
 
+import com.example.gtj.clubs.Club;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -27,6 +26,12 @@ public class Footballer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NonNull private long id;
+
+    @JsonBackReference
+    @OneToOne
+    private Club club;
+
+
 
 
 }
