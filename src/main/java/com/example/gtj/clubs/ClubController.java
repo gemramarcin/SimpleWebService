@@ -3,6 +3,7 @@ package com.example.gtj.clubs;
 import com.example.gtj.footballers.Footballer;
 import com.example.gtj.footballers.FootballerNotFoundException;
 import com.example.gtj.footballers.FootballerRepo;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,16 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/clubs")
 class ClubController {
+    private ClubRepo clubRepo;
+    private FootballerRepo footballerRepo;
+    private FootballerService footballerService;
 
-    @Autowired
-    ClubRepo clubRepo;
-
-    @Autowired
-    FootballerRepo footballerRepo;
-
-    @PostMapping("/")
+    @PostMapping
     @ResponseStatus(value = HttpStatus.OK)
     public void addClub(@Valid @RequestBody Club club) {
         clubRepo.save(club);
@@ -47,9 +46,7 @@ class ClubController {
 
     @GetMapping("/")
     public List<Club> getAll() {
-        List<Club> clubs = new ArrayList<>();
-        clubRepo.findAll().forEach(clubs::add);
-        return clubs;
+        return new ArrayList<>(clubRepo.findAll());
     }
 
     @DeleteMapping("/{id}")

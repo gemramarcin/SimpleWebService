@@ -1,6 +1,7 @@
 package com.example.gtj.footballers;
 
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -28,17 +29,18 @@ public class FootballerControllerIntegrationTest {
     private FootballerRepo repo;
 
     @Test
-    public void givenFootballer_whenGetFootballers_thenReturnJsonArray()
+    @DisplayName("should get footballer from db")
+    public void shouldGetFootballerFromDb()
             throws Exception {
-
+        //given
         Footballer footballer = new Footballer();
         footballer.setLastName("Ronaldo");
 
         List<Footballer> allFootballers = new ArrayList<>();
         allFootballers.add(footballer);
-
+        //when
         given(repo.findAll()).willReturn(allFootballers);
-
+        //then
         mvc.perform(get("/footballers/")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
