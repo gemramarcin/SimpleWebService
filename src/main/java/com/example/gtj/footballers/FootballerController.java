@@ -29,18 +29,18 @@ class FootballerController {
 
     @GetMapping("/{id}")
     public Footballer getFootballer(@PathVariable long id) {
-       return footballerService.getFootballer(id);
+        return footballerService.getFootballer(id);
     }
 
     @GetMapping
     public List<Footballer> getAll() {
-       return  footballerService.getAll();
+        return footballerService.getAll();
     }
 
     @DeleteMapping("{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public void removeFootballer(@PathVariable long id) {
-       footballerService.remove(id);
+        footballerService.remove(id);
     }
 
 }

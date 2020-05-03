@@ -2,7 +2,9 @@ package com.example.gtj.footballers;
 
 import com.example.gtj.clubs.Club;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -21,13 +23,12 @@ public class Footballer {
     private double marketValue;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @NonNull private long id;
+    @NonNull
+    private long id;
 
     @JsonBackReference
     @OneToOne
     private Club club;
-
-
 
 
 }
