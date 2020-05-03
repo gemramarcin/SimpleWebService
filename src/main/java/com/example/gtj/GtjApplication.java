@@ -4,12 +4,14 @@ import com.example.gtj.clubs.Club;
 import com.example.gtj.clubs.ClubRepo;
 import com.example.gtj.footballers.Footballer;
 import com.example.gtj.footballers.FootballerRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+@Slf4j
 @SpringBootApplication
 public class GtjApplication implements CommandLineRunner {
 
@@ -25,7 +27,7 @@ public class GtjApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("cl runner");
+		log.trace("cl runner");
 
 		Footballer f1 = new Footballer();
 		f1.setAge(21);

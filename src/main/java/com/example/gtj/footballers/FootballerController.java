@@ -29,7 +29,7 @@ class FootballerController {
     }
 
     @GetMapping("/{id}")
-    public Footballer getFootballer(@PathVariable long id) throws Throwable {
+    public Footballer getFootballer(@PathVariable long id) {
         Footballer footballer = footballerRepo.findById(id).orElseThrow(() -> new FootballerNotFoundException(id));
         return footballer;
     }
