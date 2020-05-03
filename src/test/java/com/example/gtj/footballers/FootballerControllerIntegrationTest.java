@@ -26,11 +26,11 @@ public class FootballerControllerIntegrationTest {
     private MockMvc mvc;
 
     @MockBean
-    private FootballerRepo repo;
+    private FootballerService service;
 
     @Test
-    @DisplayName("should get footballer from db")
-    public void shouldGetFootballerFromDb()
+    @DisplayName("should return JSON array")
+    public void shouldReturnJsonArray()
             throws Exception {
         //given
         Footballer footballer = new Footballer();
@@ -38,8 +38,10 @@ public class FootballerControllerIntegrationTest {
 
         List<Footballer> allFootballers = new ArrayList<>();
         allFootballers.add(footballer);
+
         //when
-        given(repo.findAll()).willReturn(allFootballers);
+        given(service.getAll()).willReturn(allFootballers);
+
         //then
         mvc.perform(get("/footballers/")
                 .contentType(MediaType.APPLICATION_JSON))

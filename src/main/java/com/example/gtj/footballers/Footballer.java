@@ -7,12 +7,8 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
-@RequiredArgsConstructor
-
 @Entity
 @Component
 public class Footballer {
@@ -24,7 +20,7 @@ public class Footballer {
     private double weight;
     private double marketValue;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @NonNull private long id;
 
     @JsonBackReference
