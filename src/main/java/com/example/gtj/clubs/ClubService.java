@@ -3,18 +3,19 @@ package com.example.gtj.clubs;
 import com.example.gtj.footballers.Footballer;
 import com.example.gtj.footballers.FootballerNotFoundException;
 import com.example.gtj.footballers.FootballerRepo;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
+
+@RequiredArgsConstructor
 @Service
 class ClubService {
 
-    private ClubRepo clubRepo;
-    private FootballerRepo footballerRepo;
+    private final ClubRepo clubRepo;
+    private final FootballerRepo footballerRepo;
 
 
     void updateClub(Club club, long id) {

@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/clubs")
 class ClubController {
 
-    private ClubService clubService;
+    private final ClubService clubService;
 
 
     @PostMapping
@@ -45,7 +45,7 @@ class ClubController {
     }
 
 
-    @GetMapping("/{id}/footballers")
+    @GetMapping("/{clubId}/footballers")
     public List<Footballer> getAllFootballersByClubId(@PathVariable long clubId) {
         return clubService.getAllFootballersByClubId(clubId);
     }

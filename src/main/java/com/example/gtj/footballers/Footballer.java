@@ -5,14 +5,12 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @Entity
-@Component
 public class Footballer {
 
     private String firstName;

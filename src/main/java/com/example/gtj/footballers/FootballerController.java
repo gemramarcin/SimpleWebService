@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/footballers")
 class FootballerController {
 
-    private FootballerService footballerService;
+    private final FootballerService footballerService;
 
 
     @PostMapping
