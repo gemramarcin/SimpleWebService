@@ -26,7 +26,6 @@ class FootballerService {
     }
 
     List<Footballer> getAll() {
-        footballerRepo.save(new Footballer("Cristiano", "Ronaldo", 35, 188.0, 80.0, 30000000.0));
         List<Footballer> footballers = new ArrayList<>();
         footballerRepo.findAll().forEach(footballers::add);
         return footballers;
